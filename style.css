@@ -11,9 +11,16 @@ body {
   color: white;
 }
 
+h3 {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
 #board {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   text-align: center;
@@ -22,8 +29,8 @@ body {
 }
 
 #game {
-  width: 95%;
-  height: 78vh;
+  width: 90%;
+  height: 75vh;
   border: 1px dashed white;
   margin: auto;
   position: relative;
