@@ -148,12 +148,36 @@ body {
 
 #game-over {
   visibility: hidden;
-  font-size: 60px;
+  font-size: 50px;
   position: absolute;
   left: 50%;
   top: 50%;
   translate: -50% -50%;
   z-index: 500;
+
+  animation: end 2s ease-in-out infinite;
+
+  @keyframes end {
+    0%{
+      scale: 1;
+    }
+    25%{
+      text-shadow: 0 0 0 red;
+    }
+    50%{
+      scale: 1.8;
+    }
+    75%{
+      text-shadow: 0 0 50px red;
+
+    }
+
+    100%{
+      scale: 1;
+    }
+
+  }
+
 }
 
 audio {

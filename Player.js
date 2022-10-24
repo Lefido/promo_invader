@@ -18,9 +18,11 @@ export default class Player {
         this.x = player.offsetLeft
         this.y = player.offsetTop
         this.velocity = 8;
-        this.vie = 5;
+        this.vie = 3;
         this.puissance = 100;
         this.sound = new Audio('./assets/impact-player.mp3')
+        this.warning = new Audio('./assets/beep-warning.mp3')
+        this.endgame = new Audio('./assets/end_game.mp3')
         // this.draw()
 
     }
@@ -57,7 +59,12 @@ export default class Player {
     life() {
         this.vie--;
         console.log("Vie", this.vie)
+        this.warning.play()
 
+    }
+
+    end_game() {
+        this.endgame.play()
     }
 
 }

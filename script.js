@@ -255,6 +255,8 @@ function collision_Missile_Player() {
             life.innerHTML = player.vie
 
             if (player.vie === 0 ) {
+
+                player.end_game()
                 new_game.style.visibility = "visible"
                 game_over.style.visibility = "visible"
                 player.vie = 5;
