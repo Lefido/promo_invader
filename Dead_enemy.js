@@ -13,7 +13,7 @@ export default class Dead_enemy {
         dead.style.top = enemy.style.top
         dead.style.background = enemy.style.background
         dead.style.background = 'url("./assets/explode-boom.gif") 90%/50% no-repeat';
-
+        dead.style.color = `rgb(${rand(155)}, ${rand(155)}, ${rand(155)})`
         dead.style.fontSize = "5px"
         dead.style.textAlign = "center"
         dead.innerHTML = bonus + " Pts";
@@ -43,5 +43,9 @@ export default class Dead_enemy {
 
     }
 
+}
+
+function rand(numColor) {
+    return 50 + Math.floor(Math.random() * numColor)
 }
 
