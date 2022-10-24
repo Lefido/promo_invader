@@ -9,7 +9,7 @@ export default class Player {
         player.setAttribute("id","player")
         player.style.width = "5vw";
         player.style.height = "8vh";
-        player.style.background = 'url("./assets/vaisseau.png") 100%/100% no-repeat';
+        player.style.background = 'url("./assets/vaisseau_2.png") 100%/100% no-repeat';
         player.style.position = "absolute";
         game.appendChild(player);
         this.player = player;
