@@ -36,7 +36,7 @@ new_game.addEventListener('click', function (){
        score = 0;
        restore_sprite()
        score_Affiche.innerHTML = "0";
-       life.innerHTML = "5";
+       life.innerHTML = "3";
        new_game.style.visibility = "hidden"
        game_over.style.visibility = "hidden"
    }
