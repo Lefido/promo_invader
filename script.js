@@ -35,7 +35,7 @@ new_game.addEventListener('click', function (){
        start = true;
        score = 0;
        score_Affiche.innerHTML = "0";
-       life.innerHTML = "0";
+       life.innerHTML = "5";
        new_game.style.visibility = "hidden"
        game_over.style.visibility = "hidden"
    }
