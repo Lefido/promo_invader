@@ -5,11 +5,11 @@ export default class Enemy {
     constructor() {
         let enemy = document.createElement('div');
         enemy.classList.add('enemy');
-        enemy.style.width = "3vw";
-        enemy.style.height = "5vh";
+        enemy.style.width = "3.5vw";
+        enemy.style.height = "5.5vh";
 
-        let numEnemy = 1 + rand(6);
-        enemy.style.background = `url("./assets/enemy${numEnemy}.png") 100%/100% no-repeat`;
+        let numEnemy = 1 + rand(10);
+        enemy.style.background = `url("./assets/alien${numEnemy}.png") 100%/100% no-repeat`;
         enemy.style.backgroundSize = "100% 100%";
         enemy.style.position = "absolute";
         game.appendChild(enemy);
