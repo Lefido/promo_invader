@@ -14,10 +14,10 @@ let score = 0;
 
 const  player = new Player();
 const keys = {};
-const tabMissile = [];
-const tabEnemy = [];
-const tabEnemyDead = [];
-const tabMissEnemy = [];
+var tabMissile = [];
+var tabEnemy = [];
+var tabEnemyDead = [];
+var tabMissEnemy = [];
 
 const score_Affiche = document.querySelector('.score')
 const puissance = document.querySelector(".puissance-position")
@@ -34,6 +34,7 @@ new_game.addEventListener('click', function (){
    } else {
        start = true;
        score = 0;
+       restore_sprite()
        score_Affiche.innerHTML = "0";
        life.innerHTML = "5";
        new_game.style.visibility = "hidden"
@@ -270,5 +271,32 @@ function collision_Missile_Player() {
 
       })
 
+}
+
+function restore_sprite() {
+
+    tabEnemy.forEach( (enemy) => {
+        enemy.enemy.remove()
+    })
+
+    tabEnemy = [];
+
+    tabMissEnemy.forEach( (missile) => {
+        missile.enemyMissile.remove()
+    })
+
+    tabMissEnemy = [];
+
+    tabMissile.forEach( (missile) => {
+        missile.missile.remove()
+    })
+
+    tabMissile = [];
+
+    tabEnemyDead.forEach( (dead) => {
+        dead.enemy.remove()
+    })
+
+    tabEnemyDead = [];
 
 }
