@@ -1,5 +1,14 @@
 
+
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
+
+
 * {
+
+
+  font-family: 'Bungee Inline', cursive;
 
   box-sizing: border-box;
   padding: 0;
@@ -14,6 +23,7 @@ body {
 }
 
 .infos {
+  font-family: 'Wallpoet', cursive;
   width: 100%;
   margin: auto;
   text-align: center;
@@ -28,7 +38,38 @@ body {
   text-align: center;
   padding: 10px;
   border-bottom: 1px dashed white;
+  font-size: 10px;
 
+  h1 {
+    font-family: 'Wallpoet', cursive;
+    font-size: 40px;
+  }
+
+
+}
+
+.board-2 {
+
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 5px 20px;
+
+}
+
+.score-board {
+  h2 {
+    font-family: 'Wallpoet', cursive;
+    font-size: 30px;
+  }
+
+}
+
+#life-board {
+  h2{
+    font-family: 'Wallpoet', cursive;
+    font-size: 30px;
+  }
 }
 
 #game {
@@ -53,10 +94,11 @@ body {
   //left: 50%;
   //top: 50%;
   //transform: translate(-50%, -50%);
-  font-size: 30px;
-  padding: 10px 40px;
+  font-size: 25px;
+  padding: 5px 40px;
   z-index: 4;
   opacity: 0.8;
+  transition: 0.5s;
 
 }
 
@@ -128,36 +170,22 @@ body {
 
 }
 
-.puissance-fond {
-  //position: absolute;
-  //width: 100%;
-  //height: 1vh ;
-  //background-color: gray;
-  //bottom: 0%;
-
-  position: absolute;
-  width: 1%;
-  height: 100vh ;
-  background-color: gray;
-  right: 0%;
-
+#life-board {
+  position: relative;
 }
 
+
 .puissance-position {
-  //position: absolute;
-  //width: 100%;
-  //height: 1vh ;
-  //background: rgb(255,0,0);
-  //background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,252,0,1) 48%, rgba(0,255,12,1) 100%);
-  //bottom: 0%;
 
   position: absolute;
-  width: 1%;
-  height: 100vh ;
+  width: 100%;
+  height: 10% ;
   background: rgb(255,0,0);
-  background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(255,252,0,1) 48%, rgba(0,255,12,1) 100%);
-  right: 0%;
-  bottom: 0%;
+  background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,252,0,1) 48%, rgba(0,255,12,1) 100%);
+  right: 1vw;
+  left: 50%;
+  transform: translatex(-50%);
+  border-radius: 1vw;
 
 }
 
@@ -172,19 +200,22 @@ body {
 
   animation: end 2s ease-in-out infinite;
 
+
+
   @keyframes end {
     0%{
       scale: 1;
+
     }
-    25%{
-      text-shadow: 0 0 0 red;
+    20% {
+      perspective: 800px;
     }
     50%{
       scale: 1.8;
     }
-    75%{
-      text-shadow: 0 0 50px red;
 
+    80%{
+      perspective: 5.5cm;
     }
 
     100%{

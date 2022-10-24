@@ -14,11 +14,13 @@ export default class Dead_enemy {
         dead.style.background = enemy.style.background
         dead.style.background = 'url("./assets/explode-boom.gif") 90%/50% no-repeat';
 
+        dead.style.fontSize = "5px"
+        dead.style.textAlign = "center"
+        dead.innerHTML = bonus + " Pts";
+
         game.appendChild(dead);
         this.dead = dead;
-        this.dead.style.fontSize = "5px"
-        this.dead.style.textAlign = "center"
-        this.dead.innerHTML = bonus + " Pts";
+
         this.x = enemy.offsetLeft
         this.y = enemy.offsetTop
         this.velocity = 1

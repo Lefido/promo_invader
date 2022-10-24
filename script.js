@@ -251,7 +251,7 @@ function collision_Missile_Player() {
             missile.enemyMissile.remove()
             player.player.classList.add('impact-player')
             player.impact();
-            puissance.style.height = player.puissance + "%"
+            puissance.style.width = player.puissance + "%"
             life.innerHTML = player.vie
 
             if (player.vie === 0 ) {
