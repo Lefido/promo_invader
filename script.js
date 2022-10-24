@@ -259,7 +259,7 @@ function collision_Missile_Player() {
                 player.end_game()
                 new_game.style.visibility = "visible"
                 game_over.style.visibility = "visible"
-                player.vie = 5;
+                player.vie = 3;
                 player.puissance = 100;
                 start = false;
 
