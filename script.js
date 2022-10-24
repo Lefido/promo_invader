@@ -167,7 +167,7 @@ function collision_Missile_Enemy() {
                 score += enemy.bonus
                 score_Affiche.innerHTML = score
 
-                tabEnemyDead.push(new Dead_enemy(enemy.enemy))
+                tabEnemyDead.push(new Dead_enemy(enemy.enemy, enemy.bonus))
 
                 tabMissile.splice(id_missile,1);
                 missile.missile.remove();
@@ -251,7 +251,7 @@ function collision_Missile_Player() {
             missile.enemyMissile.remove()
             player.player.classList.add('impact-player')
             player.impact();
-            puissance.style.width = player.puissance + "%"
+            puissance.style.height = player.puissance + "%"
             life.innerHTML = player.vie
 
             if (player.vie === 0 ) {

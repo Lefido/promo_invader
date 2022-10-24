@@ -2,7 +2,7 @@
 const game = document.querySelector('#game');
 
 export default class Dead_enemy {
-    constructor(enemy) {
+    constructor(enemy, bonus) {
 
         let dead = document.createElement('div')
         dead.classList.add('dead');
@@ -13,8 +13,12 @@ export default class Dead_enemy {
         dead.style.top = enemy.style.top
         dead.style.background = enemy.style.background
         dead.style.background = 'url("./assets/explode-boom.gif") 90%/50% no-repeat';
+
         game.appendChild(dead);
         this.dead = dead;
+        this.dead.style.fontSize = "5px"
+        this.dead.style.textAlign = "center"
+        this.dead.innerHTML = bonus + " Pts";
         this.x = enemy.offsetLeft
         this.y = enemy.offsetTop
         this.velocity = 1
