@@ -26,7 +26,7 @@ export default class Enemy {
         this.dy = 25 + rand(75);
         this.velocityX = 1 + rand(2);
         this.velocityY = 1 + rand(2);
-        this.bonus = numEnemy;
+        this.bonus = numEnemy * 2;
         this.maxShoot = 500;
         this.countShoot = rand(this.maxShoot);
 
