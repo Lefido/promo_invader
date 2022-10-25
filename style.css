@@ -14,6 +14,30 @@ body {
   color: white;
 }
 
+#title {
+  animation: title 2s ease-in-out infinite;
+}
+@keyframes title {
+  0% {
+    scale: 1;
+    color: white;
+  }
+  10% {
+    text-shadow: 0 0 0 white;
+  }
+  50% {
+    color: green;
+    scale: 1.2;
+  }
+  90% {
+    text-shadow: 0 0 40px white;
+  }
+  100% {
+    color: white;
+    scale: 1;
+  }
+}
+
 .infos {
   font-family: "Wallpoet", cursive;
   width: 100%;
@@ -25,7 +49,7 @@ body {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   padding: 10px;
@@ -44,11 +68,21 @@ body {
   padding: 5px 20px;
 }
 
+.score-board {
+  border: 1px dashed white;
+  padding: 10px;
+  border-radius: 5px;
+}
 .score-board h2 {
   font-family: "Wallpoet", cursive;
   font-size: 30px;
 }
 
+#life-board {
+  border: 1px dashed white;
+  padding: 10px;
+  border-radius: 5px;
+}
 #life-board h2 {
   font-family: "Wallpoet", cursive;
   font-size: 30px;
