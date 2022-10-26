@@ -107,40 +107,16 @@ body {
 
 #game {
   width: 90%;
-  height: 75vh;
+  height: 90vh;
   border: 1px dashed white;
-  margin: auto;
+  margin: 5px auto;
   position: relative;
   overflow: hidden;
   background: url("./assets/fond-lunaire.jpg") 100% / 100% no-repeat;
   z-index: -1;
 }
 
-#new-game {
-  display: flex;
-  margin: 10px auto;
-  background-color: black;
-  color: white;
-  border: 1px solid white;
-  //position: absolute;
-  border-radius: 10px;
-  //left: 50%;
-  //top: 50%;
-  //transform: translate(-50%, -50%);
-  font-size: 25px;
-  padding: 5px 40px;
-  z-index: 4;
-  opacity: 0.8;
-  transition: 0.5s;
 
-}
-
-#new-game:hover {
-
-  background-color: red;
-  cursor: pointer;
-
-}
 
 
 .enemy {
@@ -238,6 +214,65 @@ body {
   transform: translatex(-50%);
   border-radius: 1vw;
   padding: 1px 1px;
+
+}
+
+
+#new-game {
+  // display: flex;
+  width: 30%;
+  margin: 10px auto;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  position: absolute;
+  border-radius: 10px;
+  left: 35%;
+  top: 50%;
+  // transform: translate(-50%, -50%);
+  margin: auto;
+  font-size: 25px;
+  padding: 5px 40px;
+  z-index: 100;
+  opacity: 0.7;
+  transition: 0.5s;
+  text-align: center;
+
+  animation: newGame 1s ease-in-out infinite;
+ 
+
+  @keyframes newGame {
+
+   
+    0%{
+      
+      scale: 1;
+    }
+    10%{
+      box-shadow: 0 0 0 0 white;
+    }
+    50%{
+     
+      scale: 1.1;
+      box-shadow: 0 0 20px 0px white;
+      
+    }
+    90%{
+
+      box-shadow: 0 0 0 0 white;
+    }
+    100%{
+    
+      scale: 1;
+    }
+  }
+
+}
+
+#new-game:hover {
+
+  background-color: red;
+  cursor: pointer;
 
 }
 
