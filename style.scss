@@ -275,7 +275,7 @@ body {
   top: 50%;
   translate: -50% -50%;
   z-index: 500;
-  animation: end 2s ease-in-out infinite;
+  animation: end 3s ease-in-out infinite;
 
   @keyframes end {
     0%{
@@ -286,7 +286,7 @@ body {
       perspective: 800px;
     }
     50%{
-      scale: 1.8;
+      scale: 1.6;
     }
 
     80%{

@@ -23,7 +23,7 @@ export default class AttackEnemy {
         this.enemyMissile = enemyMissile;
         this.x = posX;
         this.y = posY;
-        this.velocity = 2 + rand(4);
+        this.velocity = 2 + rand(3);
         this.laser = new Audio('./assets/laser_enemy.mp3')
         this.laser.play()
 

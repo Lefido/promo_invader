@@ -261,8 +261,9 @@ function collision_Missile_Player() {
                 game_over.style.visibility = "visible"
                 player.vie = 3;
                 player.puissance = 100;
+                new_game.innerHTML = "NEW GAME"
                 start = false;
-
+               
             }
 
             setTimeout( function () {
