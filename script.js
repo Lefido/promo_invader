@@ -6,9 +6,19 @@ import Missile from './Missile.js';
 import Enemy from './Enemy.js';
 import Dead_enemy from "./Dead_enemy.js";
 import AttackEnemy from "./AttackEnemy.js";
+import Boss from "./Boss.js";
 
-let play_game = true
+let music = new Audio('./assets/music.mp3')
+music.play();
+music.loop = true;
+// music.loop();
+let alert = new Audio('./assets/alert.mp3')
+let msgBoss = new Audio('./assets/msg_boss.mp3')
+
 let start = false;
+let compteurBoss = 0;
+let bossActif = false;
+let enemyActif = true;
 
 let score = 0;
 
@@ -18,13 +28,19 @@ var tabMissile = [];
 var tabEnemy = [];
 var tabEnemyDead = [];
 var tabMissEnemy = [];
+var tabBoss = [];
 
 const score_Affiche = document.querySelector('.score')
 const puissance = document.querySelector(".puissance-position")
 const life = document.querySelector(".life")
 const game_over = document.querySelector('#game-over')
-
 const new_game = document.querySelector('#new-game')
+const msg_boss = document.querySelector('#msg-boss')
+
+// let pos = game.style.background.left;
+
+// let paralax = pos - player.x / 15;
+// game.style.background = `url("./assets/fond-lunaire.jpg") ${paralax}px / 100% no-repeat`;
 
 new_game.addEventListener('click', function (){
 
@@ -34,6 +50,7 @@ new_game.addEventListener('click', function (){
    } else {
        start = true;
        score = 0;
+       compteurBoss = 0;
        restore_sprite()
        score_Affiche.innerHTML = "0";
        life.innerHTML = "3";
@@ -41,12 +58,11 @@ new_game.addEventListener('click', function (){
        game_over.style.visibility = "hidden"
    }
 
-   console.log(start)
+   console.log("Start", start)
 
 })
 
 setInterval( running, 10);
-setInterval( groupEnemy , 3000);
 
 function running() {
 
@@ -59,6 +75,33 @@ function running() {
         collision_Missile_Enemy();
         collision_Missile_Player();
         moveEnemyDead();
+
+        if (!bossActif) {
+
+            if (tabEnemy.length == 0 && enemyActif) {
+                // console.log('Ajout enemy')
+                alert.play();
+                setTimeout(groupEnemy, 2500)
+                enemyActif = false;
+                
+            }
+
+        } else {
+
+            if (tabBoss.length === 0) {
+
+                let newBoss = new Boss();
+                console.log("New bosss !!")
+                tabBoss.push(newBoss);
+                console.log(tabBoss);
+
+            }
+
+            moveBoss();
+            collision_Missile_Boss()
+
+        }
+
 
         }
 
@@ -97,10 +140,14 @@ function pressKey() {
 
     if (keys["ArrowLeft"]) {
         player.dep_left();
+        // let paralax = 50 - player.x / 15
+        // game.style.background = `url("./assets/fond-lunaire.jpg") ${paralax}px / 100% no-repeat`;
     }
 
     if (keys["ArrowRight"]) {
         player.dep_right();
+        // let paralax = 50 - player.x / 15
+        // game.style.background = `url("./assets/fond-lunaire.jpg") ${paralax}px / 100% no-repeat`;
     }
 }
 
@@ -120,21 +167,23 @@ function moveMissile() {
 
 function groupEnemy() {
 
-    if (tabEnemy.length === 0 && start) {
+    // if (tabEnemy.length === 0 && start) {
 
         const missiles = document.querySelectorAll('.missiles')
 
         missiles.forEach(function (missile) {
             missile.remove();
         })
-
+       
         let nbEnemy = rand(15);
         for (let i = 0; i < nbEnemy; i++) {
             let enemy = new Enemy()
             tabEnemy.push(enemy);
         }
 
-    }
+        enemyActif = true
+
+    // }
 }
 
 function moveEnemy() {
@@ -165,7 +214,21 @@ function collision_Missile_Enemy() {
                 // console.log("Enemy" , id_enemy, "Touché")
 
                 score += enemy.bonus
+                compteurBoss++
+
+                if (compteurBoss % 50 === 0) {
+                    
+                    // music.loop = false;
+                    music.pause();
+                    msgBoss.play();
+                    msgBoss.loop = true;
+                    msg_boss.style.visibility = "Visible";
+                    setTimeout(function (){msg_boss.style.visibility = "hidden"}, 5000)
+                    bossActif = true
+                }
                 score_Affiche.innerHTML = score
+                score_Affiche.classList.add('clignote')
+                setTimeout(function(){score_Affiche.classList.remove('clignote')}, 1000)
 
                 tabEnemyDead.push(new Dead_enemy(enemy.enemy, enemy.bonus))
 
@@ -247,14 +310,16 @@ function collision_Missile_Player() {
 
         if (mx >= px1 && my >= py1 && mx <= px2 && my <= py2) {
 
-            tabMissEnemy.splice(id_missile, 1)
-            missile.enemyMissile.remove()
-            player.player.classList.add('impact-player')
+            tabMissEnemy.splice(id_missile, 1);
+            missile.enemyMissile.remove();
+            player.player.classList.add('impact-player');
             player.impact();
-            puissance.style.width = player.puissance + "%"
-            life.innerHTML = player.vie
-
-            if (player.vie === 0 ) {
+            puissance.style.width = player.puissance + "%";
+            // puissance.classList.add('clignote-2')
+            // setTimeout(function() {puissance.classList.remove('clignote-2')}, 2000);
+            life.innerHTML = player.vie;
+            
+             if (player.vie === 0 ) {
 
                 player.end_game()
                 new_game.style.visibility = "visible"
@@ -273,6 +338,58 @@ function collision_Missile_Player() {
         }
 
       })
+
+}
+
+function moveBoss() {
+    tabBoss.forEach(function(boss) {
+        boss.move();
+    })
+}
+
+function collision_Missile_Boss() {
+
+    tabMissile.forEach(function(missile, idM) {
+
+        let mx = missile.x;
+        let my = missile.y;
+
+        tabBoss.forEach(function(boss, idb) {
+
+            let bx1 = boss.x;
+            let by1 = boss.y;
+            let bx2 = boss.x + boss.boss.offsetWidth;
+            let by2 = boss.y + boss.boss.offsetHeight;
+
+        
+            if (mx >= bx1 && my >= by1 && mx <= bx2 && my <= by2) {
+                console.log("Boss touché");
+                tabEnemyDead.push(new Dead_enemy(missile.missile, 10))
+                score += 10;
+                score_Affiche.innerHTML = score
+                score_Affiche.classList.add('clignote')
+                setTimeout(function(){score_Affiche.classList.remove('clignote')}, 1000)
+
+                boss.impact();
+                tabMissile.splice(idM, 1);
+                missile.missile.remove();
+                if (boss.degat >= boss.resistance) {
+                    console.log("Enemy Mort")
+                    boss.boss.remove();
+                    tabBoss.splice(idb, 1)
+                    bossActif = false;
+                    music.play();
+                    msgBoss.pause();
+                    
+                }
+
+            }
+
+        })
+
+                
+    })  
+
 
 }
 
@@ -303,3 +420,5 @@ function restore_sprite() {
     tabEnemyDead = [];
 
 }
+
+

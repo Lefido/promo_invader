@@ -1,6 +1,9 @@
 
 
 const game = document.querySelector('#game')
+const life = document.querySelector(".life")
+
+
 
 export default class Player {
     constructor() {
@@ -53,13 +56,15 @@ export default class Player {
             this.puissance = 100;
         }
         this.sound.play()
-        console.log((this.puissance))
+        // console.log((this.puissance))
     }
 
     life() {
         this.vie--;
-        console.log("Vie", this.vie)
+        // console.log("Vie", this.vie)
         this.warning.play()
+        life.classList.add('clignote');
+        setTimeout (function() {life.classList.remove('clignote')}, 1000)
 
     }
 
