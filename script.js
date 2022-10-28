@@ -18,6 +18,7 @@ let msgBoss = new Audio('./assets/msg_boss.mp3')
 let start = false;
 let compteurBoss = 0;
 let bossActif = false;
+let declencheBoss = 40;
 let enemyActif = true;
 
 let score = 0;
@@ -51,7 +52,12 @@ new_game.addEventListener('click', function (){
        start = true;
        score = 0;
        compteurBoss = 0;
-       restore_sprite()
+       bossActif = false;
+       music.play();
+        music.loop = true;
+        msgBoss.pause();
+       restore_sprite();
+       restoreBoss();
        score_Affiche.innerHTML = "0";
        life.innerHTML = "3";
        new_game.style.visibility = "hidden"
@@ -75,6 +81,7 @@ function running() {
         collision_Missile_Enemy();
         collision_Missile_Player();
         moveEnemyDead();
+       
 
         if (!bossActif) {
 
@@ -216,7 +223,7 @@ function collision_Missile_Enemy() {
                 score += enemy.bonus
                 compteurBoss++
 
-                if (compteurBoss % 50 === 0) {
+                if (compteurBoss % declencheBoss === 0) {
                     
                     // music.loop = false;
                     music.pause();
@@ -270,7 +277,9 @@ function attackEnemy() {
 
         let rnd = Math.floor(Math.random() * tabEnemy.length)
         let enemyChoice = tabEnemy[rnd];
-        tabMissEnemy.push(new AttackEnemy(enemyChoice));
+        let posX = enemyChoice.enemy.offsetLeft + enemyChoice.enemy.offsetWidth / 2 ;
+        let posY = enemyChoice.enemy.offsetTop + enemyChoice.enemy.offsetHeight ;
+        tabMissEnemy.push(new AttackEnemy(posX, posY));
 
     }
 
@@ -343,9 +352,48 @@ function collision_Missile_Player() {
 
 function moveBoss() {
     tabBoss.forEach(function(boss) {
+
+        if (boss.countShoot >= boss.maxShoot) {
+            boss.countShoot = rand(boss.maxShoot)
+
+            attackBoss();
+        }
         boss.move();
+       
+
     })
 }
+
+function attackBoss() {
+
+        let boss = tabBoss[tabBoss.length-1];
+        // console.log(boss.x);
+
+        let posX = boss.boss.offsetLeft;
+        let posY = boss.boss.offsetTop + boss.boss.offsetHeight ;
+        tabMissEnemy.push(new AttackEnemy(posX, posY));
+
+        posX = boss.boss.offsetLeft + boss.boss.offsetWidth / 2;
+        posY = boss.boss.offsetTop + boss.boss.offsetHeight ;
+        tabMissEnemy.push(new AttackEnemy(posX, posY));
+
+        posX = boss.boss.offsetLeft + boss.boss.offsetWidth;
+        posY = boss.boss.offsetTop + boss.boss.offsetHeight ;
+        tabMissEnemy.push(new AttackEnemy(posX, posY));
+
+
+}
+
+function restoreBoss() {
+
+    tabBoss.forEach(function(boss, idb) {
+        boss.boss.remove();
+        tabBoss.splice(idb, 1);
+
+    })
+
+}
+
 
 function collision_Missile_Boss() {
 
@@ -392,6 +440,7 @@ function collision_Missile_Boss() {
 
 
 }
+
 
 function restore_sprite() {
 

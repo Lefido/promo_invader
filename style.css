@@ -96,7 +96,8 @@ body {
   z-index: -1;
 }
 
-.enemy {
+.enemy,
+.boss {
   animation: move 1s ease-in-out infinite;
 }
 @keyframes move {

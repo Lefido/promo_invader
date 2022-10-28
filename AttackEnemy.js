@@ -3,7 +3,7 @@ const game = document.querySelector('#game')
 
 export default class AttackEnemy {
 
-    constructor(enemy) {
+    constructor(positionX, positionY) {
 
 
         let enemyMissile = document.createElement('div');
@@ -15,8 +15,10 @@ export default class AttackEnemy {
         enemyMissile.style.zIndex = "-100";
         enemyMissile.style.zIndex ="2";
         enemyMissile.style.borderRadius = "50%"
-        let posX = enemy.enemy.offsetLeft + enemy.enemy.offsetWidth / 2 ;
-        let posY = enemy.enemy.offsetTop + enemy.enemy.offsetHeight ;
+        // let posX = enemy.enemy.offsetLeft + enemy.enemy.offsetWidth / 2 ;
+        let posX = positionX ;
+        // let posY = enemy.enemy.offsetTop + enemy.enemy.offsetHeight ;
+        let posY = positionY;
         enemyMissile.style.left = posX + "px";
         enemyMissile.style.top = posY + "px";
         game.appendChild(enemyMissile);

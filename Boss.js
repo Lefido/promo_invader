@@ -30,7 +30,7 @@ export default class Boss {
         this.bonus = numBoss * 2;
         this.maxShoot = 500;
         this.degat = 0;
-        this.resistance = 2000;
+        this.resistance = 1000;
         this.countShoot = rand(this.maxShoot);
 
         if (rand(2) === 0) {
@@ -74,6 +74,7 @@ export default class Boss {
     draw() {
 
         this.countShoot ++;
+
         this.boss.style.left = this.x + this.dx * Math.cos(this.cos) + "px";
         this.boss.style.top = this.y + this.dy * Math.sin(this.sin) + "px";
     }
