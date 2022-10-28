@@ -286,6 +286,7 @@ audio {
 }
 
 #cadre-boss {
+  visibility: hidden;
   display: flex;
   flex-wrap: wrap;
   z-index: 0;
