@@ -356,37 +356,52 @@ audio {
 }
 
 #cadre-boss {
-  visibility: hidden;
+  // visibility: hidden;
   display: flex;
   flex-wrap: wrap;
   z-index: 0;
   position: absolute;
   left: 0px;
-  top: 50%;
-  transform: translatey(-50%);
-  width: 40px;
+  top: 25%;
+  width: 50px;
   height: 50%;
+  // border: 1px solid green;
   
 }
-
+ 
 .cadre-puissance-boss {
-  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  width: 100%;
   position: relative;
+
+}
+
+.title-boss {
+  width: 70%;
+  font-size: 13px;
 }
 
 #degat-boss {
+  // overflow: hidden;
   position: absolute;
   background-color: red;
   border: 1px solid rgb(255, 68, 68);
-  top: 50%;
-  width: 100%;
+  right: 0%;
+  bottom: 0%;
+  width: 30%;
   height: 100%;
-  border-radius: 20px;
-  transform: translateY(-50%);
+  border-radius: 0 0 0 0;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  p{
+    font-size: 12px;
+  }
 
 }
 
