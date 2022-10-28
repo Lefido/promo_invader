@@ -10,7 +10,7 @@ export default class Boss {
         boss.style.height = "24vh";
 
         let numBoss = 1 + rand(10);
-        boss.style.background = `url("./assets/boss${numBoss}.png") 100%/100% no-repeat`;
+        boss.style.background = `url("./assets/bo${numBoss}.png") 100%/100% no-repeat`;
         boss.style.backgroundSize = "100% 100%";
         boss.style.position = "absolute";
         game.appendChild(boss);
