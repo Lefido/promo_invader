@@ -122,7 +122,7 @@ function pressKey() {
 
         // console.log(e.code);
 
-        if (e.code === "Space" && tabMissile.length <= 10 && tabEnemy.length != 0 || e.code === "Space" && tabMissile.length <= 10 && tabBoss.length != 0 ) {
+        if (e.code === "Space" && tabMissile.length <= 5 && tabEnemy.length != 0 || e.code === "Space" && tabMissile.length <= 5 && tabBoss.length != 0 ) {
             // let x = player.player.offsetLeft + player.player.offsetWidth /2
             // let y = player.player.offsetTop;
             let missile = new Missile(player)
