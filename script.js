@@ -337,6 +337,8 @@ function collision_Missile_Player() {
                 player.puissance = 100;
                 new_game.innerHTML = "NEW GAME"
                 start = false;
+                music.pause();
+                msgBoss.pause();
                
             }
 
