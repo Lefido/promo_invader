@@ -18,7 +18,7 @@ let msgBoss = new Audio('./assets/msg_boss.mp3')
 let start = false;
 let compteurBoss = 0;
 let bossActif = false;
-let declencheBoss = 40;
+let declencheBoss = 5;
 let enemyActif = true;
 
 let score = 0;
@@ -37,6 +37,8 @@ const life = document.querySelector(".life")
 const game_over = document.querySelector('#game-over')
 const new_game = document.querySelector('#new-game')
 const msg_boss = document.querySelector('#msg-boss')
+const cadre_boss = document.querySelector('#cadre-boss')
+const degat_boss = document.querySelector('#degat-boss')
 
 // let pos = game.style.background.left;
 
@@ -60,8 +62,9 @@ new_game.addEventListener('click', function (){
        restoreBoss();
        score_Affiche.innerHTML = "0";
        life.innerHTML = "3";
-       new_game.style.visibility = "hidden"
-       game_over.style.visibility = "hidden"
+       new_game.style.visibility = "hidden";
+       game_over.style.visibility = "hidden";
+       cadre_boss.style.visibility = "hidden";
    }
 
    console.log("Start", start)
@@ -226,6 +229,7 @@ function collision_Missile_Enemy() {
                 if (compteurBoss % declencheBoss === 0) {
                     
                     // music.loop = false;
+                    cadre_boss.style.visibility = "visible";
                     music.pause();
                     msgBoss.play();
                     msgBoss.loop = true;
@@ -324,8 +328,6 @@ function collision_Missile_Player() {
             player.player.classList.add('impact-player');
             player.impact();
             puissance.style.width = player.puissance + "%";
-            // puissance.classList.add('clignote-2')
-            // setTimeout(function() {puissance.classList.remove('clignote-2')}, 2000);
             life.innerHTML = player.vie;
             
              if (player.vie === 0 ) {
@@ -413,6 +415,7 @@ function collision_Missile_Boss() {
 
         
             if (mx >= bx1 && my >= by1 && mx <= bx2 && my <= by2) {
+                
                 console.log("Boss touché");
                 tabEnemyDead.push(new Dead_enemy(missile.missile, 10))
                 score += 10;
@@ -423,6 +426,10 @@ function collision_Missile_Boss() {
                 boss.impact();
                 tabMissile.splice(idM, 1);
                 missile.missile.remove();
+                let val_degat = 100 * boss.degat / boss.resistance
+                degat_boss.style.height = 100 - val_degat + "%";
+                console.log("Dégat: ", boss.degat, "Resistance: ", boss.resistance)
+                // degat_boss.style.Height = boss.degat
                 if (boss.degat >= boss.resistance) {
                     console.log("Enemy Mort")
                     boss.boss.remove();
@@ -430,7 +437,8 @@ function collision_Missile_Boss() {
                     bossActif = false;
                     music.play();
                     msgBoss.pause();
-                    
+                    cadre_boss.style.visibility = "hidden"
+
                 }
 
             }
