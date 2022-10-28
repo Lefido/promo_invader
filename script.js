@@ -230,6 +230,8 @@ function collision_Missile_Enemy() {
                     
                     // music.loop = false;
                     cadre_boss.style.visibility = "visible";
+                    degat_boss.style.height = "100%";
+                    
                     music.pause();
                     msgBoss.play();
                     msgBoss.loop = true;
