@@ -18,7 +18,7 @@ let msgBoss = new Audio('./assets/msg_boss.mp3')
 let start = false;
 let compteurBoss = 0;
 let bossActif = false;
-let declencheBoss = 2;
+let declencheBoss = 40;
 let enemyActif = true;
 
 let score = 0;
