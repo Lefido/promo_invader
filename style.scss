@@ -426,5 +426,40 @@ audio {
 
 }
 
+.newLife {
+
+
+  animation: life 0.5s ease-in infinite;
+  transform-origin: center;
+ border-radius: 25%;
+
+
+  @keyframes life {
+   0%{
+    scale: 1;
+    rotate: 0deg;
+   
+   }
+   25%{
+    rotate: 90deg;
+   }
+   50%{
+    scale: 1.4;
+    rotate: 180deg;
+   }
+   75%{
+    rotate: 270deg;
+   }
+   100%{
+    scale: 1;
+    rotate: 360deg;
+
+   }
+    
+  }
+
+
+}
+
 
 

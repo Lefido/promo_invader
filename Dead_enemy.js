@@ -7,8 +7,8 @@ export default class Dead_enemy {
         let dead = document.createElement('div')
         dead.classList.add('dead');
         dead.style.position = "absolute";
-        dead.style.width = "4wv" //enemy.style.width / 2 //"4vw";
-        dead.style.height = "4vh" // enemy.style.height / 2 //"5vh";
+        dead.style.width = "1.5vw" //enemy.style.width / 2 //"4vw";
+        dead.style.height = "2vh" // enemy.style.height / 2 //"5vh";
         dead.style.left = enemy.style.left
         dead.style.top = enemy.style.top
         dead.style.background = enemy.style.background
@@ -26,6 +26,7 @@ export default class Dead_enemy {
         this.velocity = 1
         this.duration = 0
         this.explosion = new Audio('./assets/explosion.mp3')
+        this.explosion.volume = 0.4
         this.explosion.play()
 
     }

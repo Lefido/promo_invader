@@ -7,6 +7,7 @@ import Enemy from './Enemy.js';
 import Dead_enemy from "./Dead_enemy.js";
 import AttackEnemy from "./AttackEnemy.js";
 import Boss from "./Boss.js";
+import NewLife from "./NewLife.js";
 
 let music = new Audio('./assets/music.mp3')
 music.play();
@@ -20,6 +21,7 @@ let compteurBoss = 0;
 let bossActif = false;
 let declencheBoss = 40;
 let enemyActif = true;
+let addLife = 60;
 
 let score = 0;
 
@@ -30,6 +32,8 @@ var tabEnemy = [];
 var tabEnemyDead = [];
 var tabMissEnemy = [];
 var tabBoss = [];
+var tabNewLife = [];
+let lifeActive = true;
 
 const score_Affiche = document.querySelector('.score')
 const puissance = document.querySelector(".puissance-position")
@@ -84,6 +88,7 @@ function running() {
         collision_Missile_Enemy();
         collision_Missile_Player();
         moveEnemyDead();
+        move_new_life();
        
 
         if (!bossActif) {
@@ -225,6 +230,11 @@ function collision_Missile_Enemy() {
 
                 score += enemy.bonus
                 compteurBoss++
+
+                if (compteurBoss > 0 && compteurBoss % addLife === 0 ) {
+                    lifeActive = true
+                    new_Life()
+                }
 
                 if (compteurBoss % declencheBoss === 0) {
                     
@@ -435,6 +445,7 @@ function collision_Missile_Boss() {
                 setTimeout(function(){degat_boss.classList.remove('impact-boss')}, 1000)
                 // degat_boss.style.Height = boss.degat      
                 if (boss.degat >= boss.resistance) {
+                    compteurBoss+= 15;
                     console.log("Boss Mort");
                     boss.boss.remove();
                     tabBoss.splice(idb, 1);
@@ -482,6 +493,60 @@ function restore_sprite() {
     })
 
     tabEnemyDead = [];
+
+}
+
+function new_Life() {
+
+        if (lifeActive) {
+
+        lifeActive = false;
+        let life = new NewLife();
+        tabNewLife.push(life);
+        console.log("New Life", tabNewLife.length);
+    }
+
+
+}
+
+
+function move_new_life() {
+
+  tabNewLife.forEach(function (maLife, idl){
+
+    maLife.move();
+
+    let posX = maLife.x + maLife.newLife.offsetWidth / 2
+    let posY = maLife.y + maLife.newLife.offsetHeight / 2
+
+    console.log(posX, posY, player.player.offsetWidth);
+
+    if (posX >= player.x &&
+        posY >= player.y &&
+        posX <= player.x + player.player.offsetWidth &&
+        posY <=  player.x + player.player.offsetHeight) {
+        console.log("Vie attrapée !")
+        player.vie += 1;
+        life.innerHTML = player.vie;
+        maLife.sound();
+        maLife.newLife.remove();
+        tabNewLife.splice(idl, 1);
+        lifeActive = true;
+        
+        }
+   
+    if (maLife.y >= game.clientHeight) {
+        console.log("La vie à dépassée l'ecran !")
+
+        maLife.newLife.remove();
+        console.log("Supprime la div live !")
+        tabNewLife.splice(idl, 1);
+        console.log("Tableau life", tabNewLife.length)
+        lifeActive = true;
+
+    }
+    
+  })
 
 }
 

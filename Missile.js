@@ -22,6 +22,7 @@ export default class Missile {
         this.y = posY;
         this.velocity = 6;
         this.laser = new Audio('./assets/laser.mp3')
+        this.laser.volume = 0.3;
         this.laser.play()
 
     }
