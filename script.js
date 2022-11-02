@@ -18,7 +18,7 @@ let msgBoss = new Audio('./assets/msg_boss.mp3')
 let start = false;
 let compteurBoss = 0;
 let bossActif = false;
-let declencheBoss = 40;
+let declencheBoss = 2;
 let enemyActif = true;
 
 let score = 0;
@@ -230,7 +230,7 @@ function collision_Missile_Enemy() {
                     
                     // music.loop = false;
                     cadre_boss.style.visibility = "visible";
-                    degat_boss.style.height = "100%";
+                    // degat_boss.style.height = "100%";
                     
                     music.pause();
                     msgBoss.play();
@@ -431,15 +431,18 @@ function collision_Missile_Boss() {
                 let val_degat = 100 * boss.degat / boss.resistance
                 degat_boss.style.height = 100 - val_degat + "%";
                 console.log("Dégat: ", boss.degat, "Resistance: ", boss.resistance)
-                // degat_boss.style.Height = boss.degat
+                degat_boss.classList.add('impact-boss')
+                setTimeout(function(){degat_boss.classList.remove('impact-boss')}, 1000)
+                // degat_boss.style.Height = boss.degat      
                 if (boss.degat >= boss.resistance) {
-                    console.log("Enemy Mort")
+                    console.log("Boss Mort");
                     boss.boss.remove();
-                    tabBoss.splice(idb, 1)
+                    tabBoss.splice(idb, 1);
                     bossActif = false;
                     music.play();
                     msgBoss.pause();
-                    cadre_boss.style.visibility = "hidden"
+                    cadre_boss.style.visibility = "hidden";
+                    degat_boss.style.height = "100%";
 
                 }
 

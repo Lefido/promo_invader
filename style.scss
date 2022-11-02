@@ -398,9 +398,30 @@ audio {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: 0.2s;
 
   p{
     font-size: 12px;
+  }
+
+}
+
+.impact-boss {
+
+  animation: touchBoss ease-in-out 0.5s ;
+
+  @keyframes touchBoss {
+    0%{
+      box-shadow: 0 0 2px 2px rgb(255, 73, 73);
+    }
+    50%{
+      box-shadow: 0 0 10px 2px rgb(255, 73, 73);
+      background-color: orange;
+    }
+    100%{
+      box-shadow: 0 0 2px 2px rgb(255, 73, 73);
+    }
+    
   }
 
 }
