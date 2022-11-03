@@ -92,8 +92,20 @@ body {
   margin: 5px auto;
   position: relative;
   overflow: hidden;
-  background: url("./assets/fond-lunaire.jpg") 100%/100% no-repeat;
+  background: url("./assets/fond-lunaire-2.jpg") 100%/100% repeat-y fixed;
   z-index: -1;
+}
+
+.background-deplacement {
+  animation: backgroundMove 20s linear infinite;
+}
+@keyframes backgroundMove {
+  0% {
+    background-position-y: -90vh;
+  }
+  100% {
+    background-position-y: 90vh;
+  }
 }
 
 .enemy,
