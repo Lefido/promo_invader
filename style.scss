@@ -82,6 +82,23 @@ body {
 
 }
 
+.pause {
+  animation: pause 2s ease-in-out infinite;
+  transform-origin: left;
+
+  @keyframes pause {
+    0%{
+      scale: 1;
+    }
+    50%{
+      scale: 1.2;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+}
+
 .board-2 {
   display: flex;
   justify-content: space-between;

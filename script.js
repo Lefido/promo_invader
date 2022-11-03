@@ -149,6 +149,34 @@ function pressKey() {
 
         }
 
+        if (e.code === "Escape") {
+           
+            if (start) {
+                console.log('Pause')
+                start = false
+                let pause = document.createElement('h2')
+                pause.classList.add('pause');
+                pause.style.position = "absolute";
+                pause.innerHTML = "PAUSE";
+                pause.style.fontSize = "50px";
+                pause.style.left = "50%";
+                pause.style.top = "50%";
+                pause.style.transform = "translatex(-50%)";
+                pause.style.fontFamily = "'Wallpoet', cursive";
+                game.appendChild(pause);
+
+                
+            } else {
+                console.log('Deposed')
+                start = true
+                let pause = document.querySelector('.pause');
+                pause.remove();
+            }
+
+        }
+
+        
+
     };
 
     onkeydown = onkeyup = function (e) {
