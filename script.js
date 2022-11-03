@@ -529,10 +529,12 @@ function move_new_life() {
 
     maLife.move();
 
+
     let posX = maLife.x + maLife.newLife.offsetWidth / 2
     let posY = maLife.y + maLife.newLife.offsetHeight / 2
 
-    console.log(posX, posY, player.player.offsetWidth);
+
+    console.log(maLife.x, maLife.y, posX, posY);
 
     if (posX >= player.x &&
         posY >= player.y &&

@@ -15,7 +15,7 @@ export default class NewLife {
         newLife.backgroundColor = "red";
         newLife.style.background = 'url("./assets/life.gif") 100%/100% no-repeat';
         // newLife.style.transform = "translate(-50%, -50%)";
-        let posX = Math.floor(Math.random() * game.clientWidth - newLife.offsetWidth);
+        let posX = 20 + (Math.floor(Math.random() * game.clientWidth - newLife.offsetWidth)- 20);
         let posY = 50
         console.log("Position nouvelle life", posX, posY);
         newLife.style.left = posX + "px";
