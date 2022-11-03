@@ -55,6 +55,16 @@ body {
   width: 100%;
   margin: auto;
   text-align: center;
+  border-left: 4px solid white;
+  border-right: 4px solid white;
+  border-radius: 5px;
+  padding:  0 10px;
+
+  span {
+    font-family: 'Wallpoet', cursive;
+    color: red;
+  }
+
 }
 
 #board {
