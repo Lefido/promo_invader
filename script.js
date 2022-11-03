@@ -84,15 +84,15 @@ function running() {
         if (start) {
 
         pressKey();
+        move_new_life();
         moveMissile();
         moveEnemy();
         moveMissileEnemy();
         collision_Missile_Enemy();
         collision_Missile_Player();
         moveEnemyDead();
-        move_new_life();
-       
-
+        
+    
         if (!bossActif) {
 
             if (tabEnemy.length == 0 && enemyActif) {
