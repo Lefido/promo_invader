@@ -536,10 +536,10 @@ function move_new_life() {
 
     console.log(maLife.x, maLife.y, posX, posY);
 
-    if (posX >= player.x &&
-        posY >= player.y &&
-        posX <= player.x + player.player.offsetWidth &&
-        posY <=  player.x + player.player.offsetHeight) {
+    if (posX >= player.x -40 &&
+        posY >= player.y - 20 &&
+        posX <= player.x + player.player.offsetWidth + 40 &&
+        posY <=  player.x + player.player.offsetHeight + 20) {
         console.log("Vie attrapée !")
         player.vie += 1;
         life.innerHTML = player.vie;
