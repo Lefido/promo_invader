@@ -15,7 +15,7 @@ export default class NewLife {
         newLife.backgroundColor = "red";
         newLife.style.background = 'url("./assets/life.png") 100%/100% no-repeat';
         
-        let posX = Math.floor(Math.random() * game.clientWidth);
+        let posX = Math.floor(Math.random() * game.clientWidth - newLife.offsetWidth);
         let posY = 50
         console.log("Position nouvelle life", posX, posY);
        newLife.style.left = posX + "px";

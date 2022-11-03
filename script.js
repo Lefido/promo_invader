@@ -430,7 +430,7 @@ function collision_Missile_Boss() {
                 
                 console.log("Boss touché");
                 tabEnemyDead.push(new Dead_enemy(missile.missile, 10))
-                score += 10;
+                score++;
                 score_Affiche.innerHTML = score
                 score_Affiche.classList.add('clignote')
                 setTimeout(function(){score_Affiche.classList.remove('clignote')}, 1000)
