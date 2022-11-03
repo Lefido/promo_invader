@@ -151,15 +151,18 @@ function pressKey() {
 
     onkeydown = onkeyup = function (e) {
         keys[e.code] = e.type === "keydown";
+        console.log(e.code)
     };
 
-    if (keys["ArrowLeft"]) {
+    
+
+    if (keys["ArrowLeft"] || keys["KeyA"]) {
         player.dep_left();
         // let paralax = 50 - player.x / 15
         // game.style.background = `url("./assets/fond-lunaire.jpg") ${paralax}px / 100% no-repeat`;
     }
 
-    if (keys["ArrowRight"]) {
+    if (keys["ArrowRight"] || keys["KeyD"]) {
         player.dep_right();
         // let paralax = 50 - player.x / 15
         // game.style.background = `url("./assets/fond-lunaire.jpg") ${paralax}px / 100% no-repeat`;
