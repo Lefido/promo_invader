@@ -21,7 +21,7 @@ let compteurBoss = 0;
 let bossActif = false;
 let declencheBoss = 40;
 let enemyActif = true;
-let addLife = 50;
+let addLife = 60;
 let compteurLife = 0;
 
 let score = 0;
