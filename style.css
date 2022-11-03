@@ -348,8 +348,6 @@ audio {
 
 .newLife {
   animation: life 0.5s ease-in infinite;
-  transform-origin: center;
-  border-radius: 25%;
 }
 @keyframes life {
   0% {

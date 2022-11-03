@@ -430,12 +430,9 @@ audio {
 
 
   animation: life 0.5s ease-in infinite;
-  transform-origin: center;
- border-radius: 25%;
-
 
   @keyframes life {
-   0%{
+   0%{  
     scale: 1;
     rotate: 0deg;
    

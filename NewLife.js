@@ -9,16 +9,16 @@ export default class NewLife {
         let newLife = document.createElement('div');
         newLife.classList.add('newLife');
         newLife.style.position = "absolute";
-        newLife.style.width = "2.5vw" ;
-        newLife.style.height = "5vh";
+        newLife.style.width = "1.5vw" ;
+        newLife.style.height = "3vh";
         // newLife.style.zIndex = "1000";
         newLife.backgroundColor = "red";
-        newLife.style.background = 'url("./assets/life.png") 100%/100% no-repeat';
-        
+        newLife.style.background = 'url("./assets/life.gif") 100%/100% no-repeat';
+        // newLife.style.transform = "translate(-50%, -50%)";
         let posX = Math.floor(Math.random() * game.clientWidth - newLife.offsetWidth);
         let posY = 50
         console.log("Position nouvelle life", posX, posY);
-       newLife.style.left = posX + "px";
+        newLife.style.left = posX + "px";
         newLife.style.top = posY + "px";
         
         game.appendChild(newLife);

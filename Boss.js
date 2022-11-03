@@ -32,6 +32,8 @@ export default class Boss {
         this.degat = 0;
         this.resistance = 1000;
         this.countShoot = rand(this.maxShoot);
+        this.compteurDirection = 0;
+        this.compteurDirectionMax = 1 + rand(500);
 
         if (rand(2) === 0) {
             this.velocityX = - this.velocityX
@@ -45,6 +47,14 @@ export default class Boss {
     }
 
     move() {
+
+        this.compteurDirection++
+        if (this.compteurDirection >= this.compteurDirectionMax) {
+            this.velocityX = - this.velocityX;
+            this.velocityY = - this.velocityY;
+            this.compteurDirectionMax = 1 + rand(500);
+            this.compteurDirection = 0;
+        }
 
         this.cos +=this.vSin;
         this.sin +=this.vCos;

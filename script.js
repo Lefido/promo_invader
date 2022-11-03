@@ -21,7 +21,8 @@ let compteurBoss = 0;
 let bossActif = false;
 let declencheBoss = 40;
 let enemyActif = true;
-let addLife = 60;
+let addLife = 50;
+let compteurLife = 0;
 
 let score = 0;
 
@@ -58,6 +59,7 @@ new_game.addEventListener('click', function (){
        start = true;
        score = 0;
        compteurBoss = 0;
+       compteurLife = 0
        bossActif = false;
        music.play();
         music.loop = true;
@@ -232,9 +234,10 @@ function collision_Missile_Enemy() {
                 // console.log("Enemy" , id_enemy, "Touché")
 
                 score += enemy.bonus
-                compteurBoss++
+                compteurLife++;
+                compteurBoss++;
 
-                if (compteurBoss > 0 && compteurBoss % addLife === 0 ) {
+                if (compteurLife > 0 && compteurLife % addLife === 0 ) {
                     lifeActive = true
                     new_Life()
                 }
@@ -433,7 +436,14 @@ function collision_Missile_Boss() {
                 
                 console.log("Boss touché");
                 tabEnemyDead.push(new Dead_enemy(missile.missile, 10))
-                score++;
+                score += 10;
+                compteurLife++;
+
+                if (compteurLife > 0 && compteurLife % addLife === 0 ) {
+                    lifeActive = true
+                    new_Life()
+                }
+                // compteurBoss += 1;
                 score_Affiche.innerHTML = score
                 score_Affiche.classList.add('clignote')
                 setTimeout(function(){score_Affiche.classList.remove('clignote')}, 1000)
@@ -448,7 +458,7 @@ function collision_Missile_Boss() {
                 setTimeout(function(){degat_boss.classList.remove('impact-boss')}, 1000)
                 // degat_boss.style.Height = boss.degat      
                 if (boss.degat >= boss.resistance) {
-                    compteurBoss+= 15;
+                    // compteurBoss+= 15;
                     console.log("Boss Mort");
                     boss.boss.remove();
                     tabBoss.splice(idb, 1);

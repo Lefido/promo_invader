@@ -20,7 +20,7 @@ export default class Player {
         this.player.style.top = game.clientHeight - (player.clientHeight + player.clientHeight /4) + 'px';
         this.x = player.offsetLeft
         this.y = player.offsetTop
-        this.velocity = 8;
+        this.velocity = 6;
         this.vie = 3;
         this.puissance = 100;
         this.sound = new Audio('./assets/impact-player.mp3')
