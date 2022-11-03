@@ -60,6 +60,11 @@ body {
   font-family: "Wallpoet", cursive;
   font-size: 40px;
 }
+#board h2 {
+  color: green;
+  font-family: "Wallpoet", cursive;
+  text-shadow: 0 0 25px white;
+}
 
 .board-2 {
   display: flex;
