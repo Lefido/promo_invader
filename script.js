@@ -129,25 +129,29 @@ function pressKey() {
 
         // console.log(e.code);
 
-        if (e.code === "Space" && tabMissile.length <= 5 && tabEnemy.length != 0 || e.code === "Space" && tabMissile.length <= 5 && tabBoss.length != 0 ) {
-            // let x = player.player.offsetLeft + player.player.offsetWidth /2
-            // let y = player.player.offsetTop;
-            let missile = new Missile(player)
-            // console.log("New missile, position :", player.player.offsetLeft, player.player.offsetTop)
-            tabMissile.push(missile);
-            // console.log("Missile Actif : ", tabMissile.length)
+        if (start) {
+
+            if (e.code === "Space" && tabMissile.length <= 5 && tabEnemy.length != 0 || e.code === "Space" && tabMissile.length <= 5 && tabBoss.length != 0 ) {
+                // let x = player.player.offsetLeft + player.player.offsetWidth /2
+                // let y = player.player.offsetTop;
+                let missile = new Missile(player)
+                // console.log("New missile, position :", player.player.offsetLeft, player.player.offsetTop)
+                tabMissile.push(missile);
+                // console.log("Missile Actif : ", tabMissile.length)
+
+            }
 
         }
 
-        if (e.code === "KeyE") {
-            // let x = player.player.offsetLeft + player.player.offsetWidth /2
-            // let y = player.player.offsetTop;
-            let enemy = new Enemy()
-            // console.log("New missile, position :", player.player.offsetLeft, player.player.offsetTop)
-            tabEnemy.push(enemy);
-            // console.log("Enemy Actif : ", tabEnemy.length)
+        // if (e.code === "KeyE") {
+        //     let x = player.player.offsetLeft + player.player.offsetWidth /2
+        //     let y = player.player.offsetTop;
+        //     let enemy = new Enemy()
+        //     console.log("New missile, position :", player.player.offsetLeft, player.player.offsetTop)
+        //     tabEnemy.push(enemy);
+        //     console.log("Enemy Actif : ", tabEnemy.length)
 
-        }
+        // }
 
         if (e.code === "Escape") {
            
