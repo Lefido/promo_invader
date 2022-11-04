@@ -21,7 +21,7 @@ let compteurBoss = 0;
 let bossActif = false;
 let declencheBoss = 40;
 let enemyActif = true;
-let addLife = 60;
+let addLife = 2;
 let compteurLife = 0;
 
 let score = 0;
@@ -562,8 +562,10 @@ function move_new_life() {
     maLife.move();
 
 
-    let posX = maLife.x + maLife.newLife.offsetWidth / 2
-    let posY = maLife.y + maLife.newLife.offsetHeight / 2
+    // let posX = maLife.x + maLife.newLife.offsetWidth / 2
+    // let posY = maLife.y + maLife.newLife.offsetHeight / 2
+    let posX = maLife.x // + maLife.newLife.offsetWidth / 2
+    let posY = maLife.y // + maLife.newLife.offsetHeight / 2
 
 
     console.log(maLife.x, maLife.y, posX, posY);
@@ -571,7 +573,7 @@ function move_new_life() {
     if (posX >= player.x -40 &&
         posY >= player.y - 20 &&
         posX <= player.x + player.player.offsetWidth + 40 &&
-        posY <=  player.x + player.player.offsetHeight + 20) {
+        posY <=  player.y + player.player.offsetHeight + 20) {
         console.log("Vie attrapée !")
         player.vie += 1;
         life.innerHTML = player.vie;
