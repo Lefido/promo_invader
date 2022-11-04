@@ -10,7 +10,7 @@ export default class Etoile {
         etoile.classList.add('etoile');
         etoile.style.position = "absolute";
         etoile.style.borderRadius = "50%"
-        let tailleEtoile = rand(4) / 10;
+        let tailleEtoile = rand(3) / 10;
         etoile.style.width = tailleEtoile + "vw" ;
         etoile.style.height = tailleEtoile * 2 + "vh";
         let colorEtoile = 155 + rand(100);
@@ -27,7 +27,7 @@ export default class Etoile {
         this.etoile = etoile;
         this.x = posX;
         this.y = posY;
-        this.velocity = 2 + rand(2);
+        this.velocity = 2 + rand(3);
         
     }
 

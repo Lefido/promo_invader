@@ -20,6 +20,7 @@ body {
   height: 100vh;
   background-color: black;
   color: white;
+  background: url("./assets/fond-lunaire-4.jpg") 100% / 100% no-repeat fixed;
 }
 
 #title {
@@ -139,13 +140,13 @@ body {
 }
 
 #game {
-  width: 90%;
+  width: 95%;
   height: 90vh;
   // border: 1px dashed white;
   margin: 5px auto;
   position: relative;
   overflow: hidden;
-  // background: url("./assets/fond-lunaire-2.jpg") 100% / 100% repeat-y fixed;
+  // background: url("./assets/fond-lunaire-3.jpg") 100% / 100% repeat-y fixed;
   
   z-index: -1;
 }

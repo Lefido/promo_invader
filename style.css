@@ -12,6 +12,7 @@ body {
   height: 100vh;
   background-color: black;
   color: white;
+  background: url("./assets/fond-lunaire-4.jpg") 100%/100% no-repeat fixed;
 }
 
 #title {
@@ -116,7 +117,7 @@ body {
 }
 
 #game {
-  width: 90%;
+  width: 95%;
   height: 90vh;
   margin: 5px auto;
   position: relative;
