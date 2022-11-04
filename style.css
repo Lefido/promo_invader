@@ -101,6 +101,7 @@ body {
 .score-board {
   padding: 10px;
   border-radius: 5px;
+  text-shadow: 0 0 15px black;
 }
 .score-board h2 {
   font-family: "Wallpoet", cursive;
@@ -110,6 +111,7 @@ body {
 #life-board {
   padding: 10px;
   border-radius: 5px;
+  text-shadow: 0 0 15px black;
 }
 #life-board h2 {
   font-family: "Wallpoet", cursive;
