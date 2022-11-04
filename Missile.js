@@ -8,7 +8,7 @@ export default class Missile {
         missile.style.width = "0.5vw";
         missile.style.height = "1vh";
         // missile.style.background = 'url("./assets/missile_1.png") 100%/100% no-repeat';
-        missile.style.backgroundColor = 'orange';
+        missile.style.backgroundColor = 'red';
         missile.style.borderRadius = "50%";
         missile.style.position = "absolute";
         missile.style.zIndex = "-100";

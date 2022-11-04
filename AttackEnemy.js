@@ -10,7 +10,7 @@ export default class AttackEnemy {
         enemyMissile.classList.add("missiles")
         enemyMissile.style.width = "0.5vw";
         enemyMissile.style.height = "1vh";
-        enemyMissile.style.backgroundColor = 'lightgreen';
+        enemyMissile.style.backgroundColor = 'green';
         enemyMissile.style.position = "absolute";
         enemyMissile.style.zIndex = "-100";
         enemyMissile.style.zIndex ="2";
