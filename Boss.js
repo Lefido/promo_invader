@@ -9,7 +9,7 @@ export default class Boss {
         boss.style.width = "16vw";
         boss.style.height = "24vh";
 
-        let numBoss = 1 + rand(11);
+        let numBoss = 1 + rand(10);
         boss.style.background = `url("./assets/bo${numBoss}.png") 100%/100% no-repeat`;
         boss.style.backgroundSize = "100% 100%";
         boss.style.position = "absolute";
