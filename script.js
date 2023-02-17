@@ -47,7 +47,7 @@ const msg_boss = document.querySelector('#msg-boss')
 const cadre_boss = document.querySelector('#cadre-boss')
 const degat_boss = document.querySelector('#degat-boss')
 
-newEtoile(50);
+// newEtoile(50);
 
 new_game.addEventListener('click', function (){
 
@@ -92,7 +92,7 @@ function running() {
         collision_Missile_Enemy();
         collision_Missile_Player();
         moveEnemyDead();
-        moveEtoile();
+        // moveEtoile();
         
     
         if (!bossActif) {
